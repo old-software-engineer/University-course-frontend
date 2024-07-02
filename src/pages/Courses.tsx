@@ -17,7 +17,7 @@ const Courses: React.FC = () => {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const response = await fetch('http://localhost:5000/api/courses', {
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/api/courses`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -34,7 +34,7 @@ const Courses: React.FC = () => {
 
     const handleRegister = async (courseId: string) => {
         try {
-            const response = await fetch('http://localhost:5000/api/courses/register', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/courses/register`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
