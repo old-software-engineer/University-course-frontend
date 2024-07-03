@@ -65,7 +65,7 @@ const Courses: React.FC = () => {
         <div className="container mx-auto p-4">
             <Toaster position="top-right" reverseOrder={false} />
             <h1 className="text-4xl font-bold text-center my-8">Available Courses</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 {courses.slice(0, visibleCourses).map(course => (
                     <Card
                         key={course._id}

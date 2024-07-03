@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import Card from '../components/Card';
-import toast, { Toaster } from 'react-hot-toast';
 
 interface Course {
     _id: string;
@@ -38,9 +37,8 @@ const MyCourses: React.FC = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <Toaster position="top-right" reverseOrder={false} />
             <h1 className="text-4xl font-bold text-center my-8">Registered Courses</h1>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {registeredCourses.length > 0 ? (
                     registeredCourses.slice(0, visibleCourses).map(course => (
                         <Card
@@ -52,7 +50,7 @@ const MyCourses: React.FC = () => {
                         />
                     ))
                 ) : (
-                    <p className="text-center col-span-3 text-gray-500">You haven't registered for any courses yet.</p>
+                    <p className="text-center col-span-full text-gray-500">You haven't registered for any courses yet.</p>
                 )}
             </div>
             {visibleCourses < registeredCourses.length && (
